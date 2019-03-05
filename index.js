@@ -1,7 +1,7 @@
 var Word = require('./word.js');
 var inquirer = require('inquirer');
 
-var words = ["Goku", "Piccolo", "Vegeta", "Jiren", "Krillin", "Yamcha"];
+var words = ['Goku', 'Piccolo', 'Vegeta', 'Jiren', 'Krillin', 'Yamcha'];
 
 var wordAnswer = new Word(words[Math.floor(Math.random()* words.length)]);
 
@@ -21,7 +21,7 @@ function gameEnd(result) {
 
     };
 
-    wordAnswer.letterGen()
+    wordAnswer.letterGen();
     remainingGuesses = 15;
     currentGuesses = [];
 
@@ -32,6 +32,8 @@ function gameEnd(result) {
     }]).then(function(response){
         if(response.confirm) {
             console.log("Starting new game..");
+            wordAnswer = new Word(words[Math.floor(Math.random()* words.length)]);
+            wordAnswer.letterGen();
             gameStart();
         } else {
             console.log("Try again next time!");
@@ -43,6 +45,7 @@ function gameEnd(result) {
 
 function gameStart() {
     inquirer.prompt([{
+
         name: "guess",
         prefix: '',
         message: "\nWord: " + wordAnswer.update() + "\nGuesses remaining: " + remainingGuesses + "\nCurrent guesses: " + (currentGuesses) +
