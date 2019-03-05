@@ -9,7 +9,7 @@ wordAnswer.letterGen();
 var remainingGuesses = 15;
 var currentGuesses = [];
 
-console.log("HELLO! This is the Dragonball Universe Guessing Game");
+console.log("HELLO! This is the Dragonball Universe Guessing Game" + "\nguess the name of the Dragonball Character to win!");
 
 function gameEnd(result) {
     if(result === 'win') {
